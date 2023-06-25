@@ -7,6 +7,7 @@ import * as actions from "../../store/actions";
 import './Login.scss';
 import { FormattedMessage } from 'react-intl';
 import handleLoginApi from '../../services/userService'
+
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -34,7 +35,7 @@ class Login extends Component {
         })
         console.log('username:', this.state.username, 'pass: ', this.state.password);
         try {
-            let data = await handleLoginApi(this.state.username, this.state.password);
+            let data = await handleLoginApi.handleLoginApi(this.state.username, this.state.password);
             if (data && data.errCode !== 0) {
                 this.setState({
                     errMessage: data.message
@@ -84,7 +85,7 @@ class Login extends Component {
                             {this.state.errMessage}
                         </div>
                         <div className='col-12'>
-                            <button className='btn-login' onClick={() => { this.handleLogin() }}>Login</button>
+                            <button className='btn-login' onClick={() => this.handleLogin()}>Login</button>
                         </div>
 
                         <div className='col-12'>
@@ -93,8 +94,8 @@ class Login extends Component {
                         <div className='col-12 text-center'>
                             <span className=''>Or Login With:</span>
                             <div className='col-12 social-login'>
-                                <i class="fab fa-google google"></i>
-                                <i class="fab fa-facebook facebook"></i>
+                                <i className="fab fa-google google"></i>
+                                <i className="fab fa-facebook facebook"></i>
                             </div>
                         </div>
                     </div>

@@ -1,0 +1,182 @@
+//reset slick slider css
+
+.slick-prev {
+    left: -10px !important;
+    z-index: 100;
+    width: 40px !important;
+    height: 48px !important;
+    background: #fff !important;
+    border: 2px solid #d7d7d7;
+
+    &:hover {
+        background: #d7d7d7 !important;
+    }
+}
+
+.slick-prev::before,
+.slick-next::before {
+    font-family: FontAwesome !important;
+    color: red !important;
+    // content: "\f061" !important;
+}
+
+.slick-next {
+    right: -10px !important;
+    z-index: 100;
+    width: 40px !important;
+    height: 48px !important;
+    background: #fff !important;
+    border: 2px solid #d7d7d7;
+
+    &:hover {
+        background: #d7d7d7 !important;
+    }
+}
+
+.section-share {
+    &.section-specialty {
+        background: #f5f5f5;
+    }
+
+    &.section-outstading-doctor {
+        background: #f5f5f5;
+    }
+
+    &.section-about {
+        height: 500px !important;
+    }
+
+    .section-body {
+
+        .section-customize {
+            .bg-image {
+                height: 190px;
+                width: 320px;
+                background-size: cover;
+                background-color: #eee;
+                background-repeat: no-repeat;
+                background-position: center center;
+
+                &.section-specialty {
+                    background: url('../../assets/specialty/co-xuong-khop.jpg') !important;
+                }
+
+                &.section-medical-facility {
+                    background: url('../../assets/medical-facility/logo-thucuc.png');
+                }
+
+                &.section-outstading-doctor {
+                    background: url('../../assets/outstandingDoctor/anh-dai-dien-bs.jpg') !important;
+                    width: 120px;
+                    height: 120px;
+                    border-radius: 50%;
+                    margin: auto;
+                }
+
+                &.section-handbook {
+                    background: url('../../assets/handbook/092411-dc-tiem-meso.jpg') center center no-repeat !important;
+                }
+            }
+        }
+
+    }
+
+}
+
+.section-share {
+    height: 330px;
+
+    .section-container {
+        margin: 0 100px;
+        display: flex;
+        flex-direction: column;
+
+        .section-header {
+            height: 60px;
+            margin-bottom: 30px;
+            padding-top: 30px;
+
+            .title-section {
+                font-size: 22px;
+                font-weight: 600;
+            }
+
+            .btn-section {
+                float: right;
+                padding: 10px 15px;
+                border: none;
+                outline: none;
+                display: block;
+                background: #ebebeb;
+                color: black;
+                cursor: pointer;
+                text-transform: uppercase;
+
+                &:hover {
+                    color: #fff;
+                    background-color: #f7d800;
+                }
+            }
+        }
+
+
+    }
+}
+
+.section-outstanding-doctor {
+    .outer-bg {
+        display: flex;
+        justify-items: center;
+        margin-bottom: 10px;
+    }
+
+    .section-customize {
+        padding: 5px;
+
+        .customize-border {
+            border: 1px solid #de1b1b;
+            padding: 20px;
+        }
+    }
+}
+
+.home-footer {
+    text-align: center;
+    padding-top: 5px;
+
+    a {
+        text-decoration: none;
+    }
+
+
+}
+
+.section-about {
+    padding: 0 100px;
+
+    .section-about-header {
+        padding: 20px 10px;
+        font-size: 22px;
+        font-weight: 600;
+    }
+
+    .section-about-content {
+        display: flex;
+        gap: 15px;
+        width: 100%;
+
+        .content-left {
+            width: 60%;
+        }
+
+        .content-right {
+            p {
+                text-align: justify;
+                font-style: italic;
+                padding: 15px;
+            }
+
+            width: 40%;
+        }
+    }
+}
