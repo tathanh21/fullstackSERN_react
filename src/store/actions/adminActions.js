@@ -251,7 +251,7 @@ export const fetchAllDoctors = () => {
 export const saveDetailDoctors = (data) => {
     return async (dispatch, getState) => {
         try {
-            console.log(data)
+            console.log("anh", data)
             let res = await userService.saveDetailDoctor(data);
             if (res && res.errCode === 0) {
                 toast.success("Save Infor detail doctor success");

@@ -26,4 +26,7 @@ const getAllDoctor = () => {
 const saveDetailDoctor = (data) => {
     return axios.post('/api/save-info-doctor', data)
 }
-export default { handleLoginApi, getAllUsers, createNewUserService, deleteUserServiceDelete, editUserService, getAllCodeService, getTopDoctorHomeService, getAllDoctor, saveDetailDoctor }
+const getDetailInfoDoctor = (inputId) => {
+    return axios.get(`api/get-detail-doctor-by-id/?id=${inputId}`)
+}
+export default { handleLoginApi, getAllUsers, createNewUserService, deleteUserServiceDelete, editUserService, getAllCodeService, getTopDoctorHomeService, getAllDoctor, saveDetailDoctor, getDetailInfoDoctor }
