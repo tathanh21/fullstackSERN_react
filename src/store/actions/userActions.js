@@ -1,4 +1,5 @@
 import actionTypes from './actionTypes';
+import userService from '../../services/userService';
 
 export const addUserSuccess = () => ({
     type: actionTypes.ADD_USER_SUCCESS

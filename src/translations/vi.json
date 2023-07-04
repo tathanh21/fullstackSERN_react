@@ -34,6 +34,9 @@
             "manage-specialty": "Quản Lý Chuyên Khoa",
             "handbook": "Cẩm Nang",
             "manage-handbook": "Quản Lý Cẩm Nang"
+        },
+        "doctor": {
+            "manage-schedule": "Quản Lý Kế Hoạch Khám Bệnh"
         }
     },
     "manage-user": {
@@ -54,5 +57,11 @@
     "homepage": {
         "outstanding-doctor": "Bác Sĩ Nổi Bật Tuần Qua",
         "more-info": "Xem thêm"
+    },
+    "manage-schedule": {
+        "title": "Quản Lý Kế Hoạch Khám Bệnh Của Bác Sĩ",
+        "chooseDoctor": "Chọn Bác Sĩ",
+        "chooseDate": "Chọn Ngày",
+        "save": "Lưu Thông Tin"
     }
 }

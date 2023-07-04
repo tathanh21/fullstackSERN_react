@@ -251,7 +251,7 @@ export const fetchAllDoctors = () => {
 export const saveDetailDoctors = (data) => {
     return async (dispatch, getState) => {
         try {
-            console.log("anh", data)
+            // console.log("anh", data)
             let res = await userService.saveDetailDoctor(data);
             if (res && res.errCode === 0) {
                 toast.success("Save Infor detail doctor success");
@@ -272,5 +272,25 @@ export const saveDetailDoctors = (data) => {
 }
 
 
+export const fetchAllScheduleTime = () => {
+    return async (dispatch, getState) => {
+        try {
+            let res = await userService.getAllCodeService("TIME");
+            if (res && res.errCode === 0) {
+                dispatch({
+                    type: actionTypes.FETCH_ALLCODE_SCHEDULE_TIME_SUCCESS,
+                    dataTime: res.data
+                })
+            } else {
+                dispatch({
+                    type: actionTypes.FETCH_ALLCODE_SCHEDULE_TIME_FAILED,
+                })
+            }
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+}
 
 
