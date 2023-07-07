@@ -29,7 +29,7 @@ class ModalEditUser extends Component {
                 address: user.address
             })
         }
-        console.log('dis mount edit modal', this.props.currentUser)
+        // console.log('dis mount edit modal', this.props.currentUser)
     }
     toggle = () => {
         this.props.toggerFromParent()
