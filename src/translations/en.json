@@ -77,6 +77,20 @@
             "detail": "See details",
             "payment": "Payment methods: ",
             "hide-price": "Hide price list"
+        },
+        "booking-modal": {
+            "title": "Information for Appointment Appointment",
+            "fullName": "First and Last Name",
+            "phoneNumber": "Phone Number",
+            "email": "Email Address",
+            "address": "Contact Address",
+            "reason": "Reasons for Examination",
+            "birthday": "Date of Birth",
+            "gender": "Gender",
+            "btnConfirm": "Confirm",
+            "cancel": "Cancel",
+            "price": "Price: ",
+            "free": "Free Booking"
         }
     },
     "admin": {

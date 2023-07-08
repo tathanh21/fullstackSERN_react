@@ -77,6 +77,20 @@
             "detail": "Xem Chi Tiết",
             "payment": "Phương Thức Thanh Toán: ",
             "hide-price": "Ẩn bảng giá"
+        },
+        "booking-modal": {
+            "title": "Thông Tin Đặt Lịch Khám Bệnh",
+            "fullName": "Họ Và Tên",
+            "phoneNumber": "Số Điện thoại",
+            "email": "Địa Chỉ Email",
+            "address": "Địa Chỉ Liên Lạc",
+            "reason": "Lý Do Khám",
+            "birthday": "Ngày Sinh",
+            "gender": "Giới Tính",
+            "btnConfirm": "Xác Nhận",
+            "cancel": "Hủy",
+            "price": "Giá Khám: ",
+            "free": "Miễn Phí Đặt Lịch"
         }
     },
     "admin": {
