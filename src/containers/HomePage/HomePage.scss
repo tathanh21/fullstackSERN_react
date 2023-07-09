@@ -58,7 +58,11 @@
                 background-position: center center;
 
                 &.section-specialty {
-                    background: url('../../assets/specialty/co-xuong-khop.jpg') !important;
+                    // background: url('../../assets/specialty/co-xuong-khop.jpg') !important;
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 10%;
+                    margin: auto;
                 }
 
                 &.section-medical-facility {

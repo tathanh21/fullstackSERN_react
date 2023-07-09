@@ -113,7 +113,6 @@ class UserRedux extends Component {
                 avatar: base64
             })
         }
-
     }
     openPreviewImage = () => {
         if (!this.state.previewImgURL)

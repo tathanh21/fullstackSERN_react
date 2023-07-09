@@ -56,7 +56,8 @@
     },
     "homepage": {
         "outstanding-doctor": "Bác Sĩ Nổi Bật Tuần Qua",
-        "more-info": "Xem thêm"
+        "more-info": "Xem thêm",
+        "specialty": "Chuyên khoa phổ biến"
     },
     "manage-schedule": {
         "title": "Quản Lý Kế Hoạch Khám Bệnh Của Bác Sĩ",
@@ -104,6 +105,8 @@
         "province": "Tỉnh Thành",
         "nameClinic": "Tên Phòng Khám",
         "addressClinic": "Địa Chỉ Phòng Khám",
-        "note": "Ghi Chú"
+        "note": "Ghi Chú",
+        "specialty": "Chọn Chuyên Khoa",
+        "select-clinic": "Chọn Phòng Khám"
     }
 }
