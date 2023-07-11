@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import Slider from "react-slick";
 import userService from '../../../services/userService';
 import { withRouter } from 'react-router';
-
+import './Specialty.scss';
 class Specialty extends Component {
     constructor(props) {
         super(props)
@@ -42,7 +42,7 @@ class Specialty extends Component {
                                     return (
                                         <div className='section-customize' key={index} onClick={() => { this.handleViewDetailDoctor(item) }}>
                                             <div className='bg-image section-specialty' style={{ background: `url(${item.image})` }} />
-                                            <div>{item.name}</div>
+                                            <div className='specialty-name'>{item.name}</div>
                                         </div>
                                     )
                                 })

@@ -10,6 +10,7 @@ import 'react-markdown-editor-lite/lib/index.css';
 import Select from 'react-select';
 import { CRUD_ACTION, LANGUAGES } from '../../../utils';
 import userService from '../../../services/userService';
+import { inRange } from 'lodash';
 // Initialize a markdown parser
 const mdParser = new MarkdownIt(/* Markdown-it options */);
 
@@ -89,6 +90,14 @@ class ManageDoctor extends Component {
                     result.push(object)
                 })
             }
+            if (type === 'CLINIC') {
+                inputData.map((item, index) => {
+                    let object = {};
+                    object.label = item.name;
+                    object.value = item.id;
+                    result.push(object)
+                })
+            }
         }
         return result;
     }
@@ -109,22 +118,22 @@ class ManageDoctor extends Component {
             this.setState({
                 listPrice: dataSelectPrice,
                 listPayment: dataSelectPayment,
-                listProvince: dataSelectProvince
+                listProvince: dataSelectProvince,
             })
         }
         if (prevProps.allRequiredDoctorInfo !== this.props.allRequiredDoctorInfo) {
-            let { resPayment, resPrice, resProvince, resSpecialty } = this.props.allRequiredDoctorInfo
+            let { resPayment, resPrice, resProvince, resSpecialty, resClinic } = this.props.allRequiredDoctorInfo
             let dataSelectPrice = this.buidDataInputSelect(resPrice, 'PRICE')
             let dataSelectPayment = this.buidDataInputSelect(resPayment, 'PAYMENT')
             let dataSelectProvince = this.buidDataInputSelect(resProvince, 'PROVINCE')
             let dataSelectSpecialty = this.buidDataInputSelect(resSpecialty, 'SPECIALTY')
-
-
+            let dataSelectClinic = this.buidDataInputSelect(resClinic, 'CLINIC')
             this.setState({
                 listPrice: dataSelectPrice,
                 listPayment: dataSelectPayment,
                 listProvince: dataSelectProvince,
-                listSpecialty: dataSelectSpecialty
+                listSpecialty: dataSelectSpecialty,
+                listClinic: dataSelectClinic
             })
 
         }
@@ -160,12 +169,13 @@ class ManageDoctor extends Component {
     }
     handleChangeSelect = async (selectedDoctor) => {
         this.setState({ selectedDoctor });
-        let { listPayment, listPrice, listProvince } = this.state;
+
+        let { listPayment, listPrice, listProvince, listSpecialty, listClinic } = this.state;
         let response = await userService.getDetailInfoDoctor(selectedDoctor.value);
         if (response && response.errCode === 0 && response.data && response.data.Markdown) {
             let markdown = response.data.Markdown;
-            let addressClinic = '', nameClinic = '', note = '', paymentId = '', priceId = '', provinceId = '',
-                selectedPayment, selectedPrice, selectedProvince;
+            let addressClinic = '', nameClinic = '', note = '', paymentId = '', priceId = '', provinceId = '', specialtyId = '', clinicId = '',
+                selectedPayment, selectedPrice, selectedProvince, selectedSpecialty, selectedClinic;
 
             if (response.data.Doctor_Info) {
                 addressClinic = response.data.Doctor_Info.addressClinic;
@@ -176,6 +186,9 @@ class ManageDoctor extends Component {
                 paymentId = response.data.Doctor_Info.paymentId;
                 priceId = response.data.Doctor_Info.priceId;
                 provinceId = response.data.Doctor_Info.provinceId;
+                specialtyId = response.data.Doctor_Info.specialtyId;
+                clinicId = response.data.Doctor_Info.clinicId;
+
                 selectedPayment = listPayment.find(item => {
                     return item && item.value === paymentId
                 })
@@ -184,6 +197,12 @@ class ManageDoctor extends Component {
                 })
                 selectedProvince = listProvince.find(item => {
                     return item && item.value === provinceId
+                })
+                selectedSpecialty = listSpecialty.find(item => {
+                    return item && item.value === specialtyId
+                })
+                selectedClinic = listClinic.find(item => {
+                    return item && item.value === clinicId
                 })
             }
             this.setState({
@@ -196,7 +215,9 @@ class ManageDoctor extends Component {
                 note: note,
                 selectedPayment: selectedPayment,
                 selectedPrice: selectedPrice,
-                selectedProvince: selectedProvince
+                selectedProvince: selectedProvince,
+                selectedSpecialty: selectedSpecialty,
+                selectedClinic: selectedClinic
             })
         } else {
             this.setState({
@@ -207,6 +228,11 @@ class ManageDoctor extends Component {
                 addressClinic: '',
                 nameClinic: '',
                 note: '',
+                selectedPayment: '',
+                selectedPrice: '',
+                selectedProvince: '',
+                selectedSpecialty: '',
+                selectedClinic: ''
             })
         }
     }
@@ -217,7 +243,6 @@ class ManageDoctor extends Component {
         this.setState({
             ...stateCopy
         })
-        // console.log('check new select onchange', selectedDoctor, name)
     }
     handleOnChangeText = (event, id) => {
         let stateCopy = { ...this.state }
@@ -314,7 +339,7 @@ class ManageDoctor extends Component {
                     <div className='col-4 form-group'>
                         <label><FormattedMessage id="admin.specialty" /></label>
                         <Select
-                            defaultValue={this.state.selectedSpecialty}
+                            value={this.state.selectedSpecialty}
                             onChange={this.handleChangeSelectDoctorInfo}
                             options={this.state.listSpecialty}
                             className='form-control'
@@ -325,11 +350,12 @@ class ManageDoctor extends Component {
                     <div className='col-4 form-group'>
                         <label><FormattedMessage id="admin.select-clinic" /> </label>
                         <Select
-                            defaultValue={this.state.selectedClinic}
+                            value={this.state.selectedClinic}
                             onChange={this.handleChangeSelectDoctorInfo}
                             options={this.state.listClinic}
                             className='form-control'
                             placeholder={<FormattedMessage id="admin.select-clinic" />}
+                            name='selectedClinic'
                         />
                     </div>
                 </div>
