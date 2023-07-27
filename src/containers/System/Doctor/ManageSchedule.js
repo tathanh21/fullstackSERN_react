@@ -41,7 +41,7 @@ class ManageSchedule extends Component {
                 //     item.isSelected = false;
                 //     return item
                 // })
-                data = data.map(item => ({ ...item, isSelected: 'false' }))
+                data = data.map(item => ({ ...item, isSelected: false }))
             }
             this.setState({
                 rangeTime: data
@@ -104,7 +104,8 @@ class ManageSchedule extends Component {
 
         // let formatedDate = moment(currentDate).format(dateFormat.SEND_TO_SERVER);
         let formatedDate = new Date(currentDate).getTime();
-
+        // console.log('date', formatedDate)
+        // return
         if (rangeTime && rangeTime.length > 0) {
             let selectedTime = rangeTime.filter(item => item.isSelected === true);
             if (selectedTime && selectedTime.length > 0) {
@@ -130,14 +131,14 @@ class ManageSchedule extends Component {
             toast.success('Save info success')
 
         } else {
-            toast.error('error saveBulkScheduleDoctor')
+            toast.error('Error SaveBulkScheduleDoctor')
         }
     }
     render() {
         let { rangeTime } = this.state;
         let { language } = this.props;
         let yesterday = new Date(new Date().setDate(new Date().getDate() - 1))
-        console.log('range time', rangeTime)
+        // console.log('range time', rangeTime)
         return (
             <div className='manage-schedule-conatiner'>
                 <div className='m-s-title'>
@@ -151,8 +152,8 @@ class ManageSchedule extends Component {
                                 defaultValue={this.state.selectedDoctor}
                                 onChange={this.handleChangeSelect}
                                 options={this.state.listDoctor}
-                                className='form-control'
-                            />                        </div>
+                                className='form-control' />
+                        </div>
                         <div className='col-6 form-group'>
                             <label><FormattedMessage id="manage-schedule.chooseDate" /></label>
                             <DatePicker

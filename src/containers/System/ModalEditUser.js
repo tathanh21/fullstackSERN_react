@@ -60,7 +60,6 @@ class ModalEditUser extends Component {
         if (isValid === true) {
             // call api edit modal
             this.props.editUser(this.state);
-
         }
     }
     render() {

@@ -1,0 +1,18 @@
+table,
+thead,
+tr,
+tbody,
+th,
+td {
+    text-align: center;
+}
+
+.table {
+    margin-top: 10px;
+
+    .thead-dark {
+        .bg-success {
+            color: white;
+        }
+    }
+}

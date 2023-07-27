@@ -255,7 +255,7 @@ class ManageDoctor extends Component {
         let { hasOldData } = this.state;
 
         return (
-            <div className='manage-doctor-container'>
+            <div className='manage-doctor-container container'>
                 <div className='manage-doctor-title'><FormattedMessage id="admin.manage-doctor" /></div>
                 <div className='more-info'>
                     <div className='content-left'>
@@ -360,6 +360,7 @@ class ManageDoctor extends Component {
                     </div>
                 </div>
                 <div className='manage-doctor-editor'> </div>
+                <br />
                 <MdEditor style={{ height: '300px' }}
                     renderHTML={text => mdParser.render(text)}
                     onChange={this.handleEditorChange}

@@ -58,7 +58,6 @@ class ModalUser extends Component {
         if (isValid === true) {
             // call api create modal
             this.props.createNewUser(this.state);
-
         }
     }
     render() {

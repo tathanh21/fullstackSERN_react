@@ -56,7 +56,7 @@ class UserRedux extends Component {
 
         if (prevProps.genderRedux !== this.props.genderRedux) {
             let arrGender = this.props.genderRedux;
-            console.log('check gender', this.props.genderRedux)
+            // console.log('check gender', this.props.genderRedux)
             this.setState({
                 genderArr: arrGender,
                 gender: arrGender && arrGender.length > 0 ? arrGender[0].keyMap : ""
@@ -64,7 +64,7 @@ class UserRedux extends Component {
         }
 
         if (prevProps.positionRedux !== this.props.positionRedux) {
-            console.log('check position', this.props.positionRedux)
+            // console.log('check position', this.props.positionRedux)
             let arrPosition = this.props.positionRedux;
             this.setState({
                 positionArr: arrPosition,
@@ -74,7 +74,7 @@ class UserRedux extends Component {
 
         if (prevProps.roleRedux !== this.props.roleRedux) {
             let arrRole = this.props.roleRedux;
-            console.log('check roles', this.props.roleRedux)
+            // console.log('check roles', this.props.roleRedux)
             this.setState({
                 roleArr: arrRole,
                 role: arrRole && arrRole.length > 0 ? arrRole[0].keyMap : ""
@@ -194,7 +194,7 @@ class UserRedux extends Component {
             phoneNumber: user.phoneNumber,
             address: user.address,
             gender: user.gender,
-            position: user.position,
+            position: user.positionId,
             role: user.roleId,
             avatar: '',
             previewImgURL: imageBase64,
@@ -276,7 +276,9 @@ class UserRedux extends Component {
                                 <label><FormattedMessage id='manage-user.position' /></label>
                                 <select id="inputState" className="form-control" onChange={(event) => this.onchangeInput(event, 'position')} value={position}>
                                     {positions && positions.length > 0 && positions.map((item, index) => {
-                                        return <option key={index} value={item.keyMap}>{language === LANGUAGES.VI ? item.valueVi : item.valueEn}</option>
+                                        return <option key={index} value={item.keyMap}>
+                                            {language === LANGUAGES.VI ? item.valueVi : item.valueEn}
+                                        </option>
                                     })}
                                 </select>
                             </div>
@@ -285,7 +287,7 @@ class UserRedux extends Component {
                                 <label><FormattedMessage id='manage-user.roleId' /></label>
                                 <select id="inputState" className="form-control" onChange={(event) => this.onchangeInput(event, 'role')} value={role}>
                                     {roles && roles.length > 0 && roles.map((item, index) => {
-                                        return <option key={index} value={item.keyMap}>{language === LANGUAGES.VI ? item.valueVi : item.valueEn}</option>
+                                        return <option key={index} value={item.keyMap}> {language === LANGUAGES.VI ? item.valueVi : item.valueEn}</option>
                                     })}
                                 </select>
                             </div>
@@ -316,8 +318,7 @@ class UserRedux extends Component {
                         </div>
                     </div>
                     <TableManageUser
-                        handleEditUserFromParentKey={this.handleEditUserFromParent}
-                        action={this.state.action} />
+                        handleEditUserFromParentKey={this.handleEditUserFromParent} />
 
                     {this.state.isOpen === true &&
                         < Lightbox

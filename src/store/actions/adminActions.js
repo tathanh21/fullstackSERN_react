@@ -100,9 +100,11 @@ export const createNewUser = (data) => {
                 dispatch(fetchAllUserStart());
             }
             else {
+                toast.error("Create User Error");
                 dispatch(saveUserFailed());
             }
         } catch (error) {
+            toast.error("Create User Error");
             dispatch(saveUserFailed());
             console.log(error)
         }
@@ -121,12 +123,10 @@ export const fetchAllUserStart = () => {
         try {
             let res = await userService.getAllUsers("ALL");
             let res1 = await userService.getTopDoctorHomeService(3);
-            console.log('Hoi dan it check top doctor:', res1)
             if (res && res.errCode === 0) {
                 dispatch(fetchAllUserSuccess(res.users.reverse()));
             }
             else {
-                toast.error("Create User Error");
                 dispatch(fetchAllUserFail());
             }
         } catch (error) {

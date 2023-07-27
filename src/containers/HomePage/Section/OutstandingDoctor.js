@@ -29,6 +29,7 @@ class OutstadingDoctor extends Component {
     }
     render() {
         let arrDoctors = this.state.arrDoctors;
+        console.log('ádf', arrDoctors)
         let { language } = this.props;
         return (
             <div className='section-share outstading-doctor'>
@@ -56,7 +57,7 @@ class OutstadingDoctor extends Component {
                                             </div>
                                             <div className='position text-center'>
                                                 <div>{language === LANGUAGES.VI ? nameVi : nameEn}</div>
-                                                <div>co xuong khop</div>
+                                                {/* <div>co xuong khop</div> */}
                                             </div>
                                         </div>
                                     </div>
